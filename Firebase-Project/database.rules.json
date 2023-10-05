@@ -1,0 +1,17 @@
+// These rules grant access to a node matching the authenticated
+// user's ID from the Firebase auth token
+{
+  "rules": {
+    "UsersData": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid",
+        "sensor": {
+          ".indexOn": "timestamp",
+          ".read": "$uid === auth.uid",
+          ".write": "$uid === auth.uid"
+        }
+      }
+    }
+  }
+}
